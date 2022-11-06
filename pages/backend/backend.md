@@ -2,7 +2,7 @@
 title: Backend
 layout: default
 has_children: true
-permalink: /backend
+permalink: /docs/backend
 ---
 
 # Backend

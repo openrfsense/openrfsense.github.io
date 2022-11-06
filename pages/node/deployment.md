@@ -2,7 +2,7 @@
 title: Deployment
 layout: default
 parent: Node
-permalink: /node/deployment
+permalink: /docs/node/deployment
 ---
 
 # Node deployment

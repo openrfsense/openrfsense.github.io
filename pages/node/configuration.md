@@ -2,7 +2,7 @@
 title: Configuration
 layout: default
 parent: Node
-permalink: /node/configuration
+permalink: /docs/node/configuration
 ---
 
 # Node configuration

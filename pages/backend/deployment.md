@@ -2,7 +2,7 @@
 title: Deployment
 layout: default
 parent: Backend
-permalink: /backend/deployment
+permalink: /docs/backend/deployment
 ---
 
 # Backend deployment

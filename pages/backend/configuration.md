@@ -2,7 +2,7 @@
 title: Configuration
 layout: default
 parent: Backend
-permalink: /backend/configuration
+permalink: /docs/backend/configuration
 ---
 
 # Backend configuration

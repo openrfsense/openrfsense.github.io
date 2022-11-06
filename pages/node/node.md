@@ -2,7 +2,7 @@
 title: Node
 layout: default
 has_children: true
-permalink: /node
+permalink: /docs/node
 ---
 
 # Node
