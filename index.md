@@ -113,17 +113,17 @@ $ ./orfs-node --config <your config file>
 ```
 
 ##### **Disk image on a supported board**
-Since this method warrants its own page, see [node/deployment](/node/deployment).
+Since this method warrants its own page, see [node/deployment](/docs/node/deployment).
 
 ### What's next?
 If you wish to explore the rest of documentation (highly recommended) or get a better understanding of how the whole system works, visit the following pages:
 
 - Backend
-  - In-depth [configuration documentation](/backend/configuration)
-  - More [deployment options](/backend/deployment)
+  - In-depth [configuration documentation](/docs/backend/configuration)
+  - More [deployment options](/docs/backend/deployment)
 - Node
-  - In-depth [configuration documentation](/node/configuration)
-  - More [deployment options](/node/deployment)
+  - In-depth [configuration documentation](/docs/node/configuration)
+  - More [deployment options](/docs/node/deployment)
 
 
 [Golang]: /assets/logos/go.svg
