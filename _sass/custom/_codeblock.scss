@@ -1,0 +1,99 @@
+@import "mixins";
+
+.highlight {
+  pre {
+    margin-bottom: 0;
+    line-height: 1.4rem;
+    // Fixed iOS safari overflow-x
+    word-wrap: normal;
+  }
+
+  table {
+    td pre {
+      // Fixed iOS safari overflow-x
+      overflow: visible;
+      // Fixed iOS safari linenos code break
+      word-break: normal;
+    }
+  }
+
+  // Unselectable line numbers etc
+  .gl {
+    @include unselectable;
+  }
+
+  .lineno {
+    opacity: .35;
+    padding-right: .6rem;
+    min-width: 2.2rem;
+    text-align: right;
+  }
+}
+
+.highlighter-rouge {
+  padding-top: .2rem !important;
+}
+
+// Hide line numbers for default, console, and terminal code snippets
+div {
+
+  &[class^="highlighter-rouge"],
+  &.nolineno,
+  &.language-plaintext.highlighter-rouge,
+  &.language-console.highlighter-rouge,
+  &.language-shell.highlighter-rouge,
+  &.language-terminal.highlighter-rouge {
+    .rouge-gutter {
+      display: none;
+    }
+
+    // Make dollar sign unselectable
+    .gp:first-of-type {
+      @include unselectable;
+      margin-right: .2rem;
+
+      &~.w {
+        @include unselectable;
+      }
+    }
+
+    // Adjust laft padding since there's no gutter anymore
+    td.rouge-code {
+      padding-left: .8rem;
+    }
+  }
+}
+
+// Codeblock header
+.code-header {
+  @include unselectable;
+
+  $code-header-height: 2rem;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: $code-header-height;
+
+  // Divider
+  &~hr {
+    margin: .2rem 0 .6rem 0;
+  }
+
+  // Label
+  span {
+    @at-root [file] #{&}>i {
+      position: relative;
+      top: 1px;
+      /* center the file icon */
+    }
+
+    // Label text
+    &::after {
+      content: attr(data-label-text);
+      font-size: 0.85rem;
+      font-weight: 600;
+      opacity: .35;
+    }
+  }
+}

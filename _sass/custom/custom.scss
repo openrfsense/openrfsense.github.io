@@ -1,0 +1,25 @@
+@import "codeblock";
+
+$list-inline-padding: .5rem !default;
+
+.nav-list {
+  .nav-list-item {
+    .nav-list-link {
+      color: $nav-child-link-color;
+
+      &.active {
+        color: $link-color;
+      }
+    }
+
+    .nav-list-expander {
+      color: $nav-child-link-color;
+
+      // TODO: fix this
+      & ~ .active {
+        color: $link-color;
+      }
+    }
+  }
+}
+

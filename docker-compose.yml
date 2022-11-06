@@ -1,0 +1,10 @@
+services:
+  jekyll:
+    image: jekyll/jekyll
+    ports:
+      - 4000:4000
+      - 4001:4001
+    volumes:
+      - .:/srv/jekyll:Z
+      - ./vendor/bundle:/usr/local/bundle:Z
+    command: jekyll serve -l --livereload-port 4001

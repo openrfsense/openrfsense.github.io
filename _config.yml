@@ -1,0 +1,57 @@
+title: OpenRFSense documentation
+description: A starter template for a Jeykll site using the Just the Docs theme!
+url: https://openrfsense.github.io
+logo: /assets/logo.svg
+theme: just-the-docs
+color_scheme: openrf
+
+orfs:
+  backend_repo: https://github.com/openrfsense/backend
+  node_repo: https://github.com/openrfsense/node
+
+exclude:
+  - "vendor"
+
+plugins:
+  - jekyll-seo-tag
+
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  startings: []
+  blanklines: false
+  profile: false
+
+heading_anchors: true
+
+back_to_top: true
+back_to_top_text: "Back to top"
+
+gh_edit_link: true
+gh_edit_link_text: "Edit this page on GitHub."
+gh_edit_repository: "https://github.com/openrfsense/docs"
+gh_edit_branch: "master"
+gh_edit_view_mode: "tree"
+
+callouts_level: quiet # or loud
+callouts:
+  highlight:
+    color: yellow
+  important:
+    title: Important
+    color: blue
+  new:
+    title: New
+    color: green
+  note:
+    title: Note
+    color: purple
+  warning:
+    title: Warning
+    color: red
+
+kramdown:
+  syntax_highlighter_opts:
+    block:
+      line_numbers: true
