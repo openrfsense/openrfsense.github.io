@@ -30,7 +30,7 @@
   }
 }
 
-.highlighter-rouge {
+.highlighter-rouge:not([no-header]) {
   padding-top: .2rem !important;
 }
 

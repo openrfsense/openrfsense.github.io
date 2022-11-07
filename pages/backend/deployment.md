@@ -42,6 +42,7 @@ For the purposes of this example, the directory tree will look something like th
   📄 Dockerfile         # Builder and runner container spec
 📄 docker-compose.yml   # Software stack spec
 ```
+{: no-header="" }
 
 ### Setting up Caddy
 

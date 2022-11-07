@@ -1,5 +1,7 @@
 {% assign _content = include.content %}
 
+<!-- Remove useless <pre> from code blocks -->
+
 {% if _content contains '<pre class="highlight">' %}
   {% assign _content = _content
     | replace: '<div class="highlight"><pre class="highlight"><code>', '<div class="highlight"><code>'
@@ -17,11 +19,17 @@
     {% if forloop.last %}
       {% assign _new_content = _new_content | append: _snippet %}
     {% else %}
-      {% assign _left = _snippet | split: '><' | last%}
+      {% assign _left = _snippet | split: '><' | last %}
+
+      {% if _left contains 'no-header' %}
+        {% assign _new_content = _new_content | append: _snippet
+          | append: '<div class="highlight"><code>'
+        %}
+        {% continue %}
+      {% endif %}
 
       {% if _left contains 'file="' %}
         {% assign _label_text = _left | split: 'file="' | last | split: '"' | first %}
-        {% assign _label_icon = 'far fa-file-code' %}
       {% else %}
         {% assign _lang = _left | split: 'language-' | last | split: ' ' | first %}
         {% capture _label_text %}{% include language-alias.html language=_lang %}{% endcapture %}
