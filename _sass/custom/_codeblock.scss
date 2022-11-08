@@ -1,5 +1,10 @@
 @import "mixins";
 
+// Code blocks with .nowrap will never be broken into a newline
+code.nowrap {
+  white-space: nowrap;
+}
+
 .highlight {
   pre {
     margin-bottom: 0;
