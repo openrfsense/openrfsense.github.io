@@ -15,6 +15,7 @@ A valid YAML file for the node (most/all values populated) would look like the f
 ```yaml
 # Node daemon configuration
 node:
+  # Port on which to serve the UI
   port: 9090
 
 # Location information (required)
@@ -26,6 +27,13 @@ location:
   # Geographic coordinates of the sensor
   latitude: 46.0669256
   longitude: 11.1481102
+
+# Collector service configuration
+collector:
+  # Collector host (the backend's host)
+  host: BACKEND-ip
+  # Port on which to wait for TCP packets
+  port: 2222
 
 # NATS server configuration
 nats:
