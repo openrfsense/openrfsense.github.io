@@ -10,7 +10,7 @@ permalink: /docs/node/configuration
 The static configuration for the node is loaded from a valid YAML file and from environment variables.
 
 ## Configuration file
-A valid YAML file for the node (most/all values populated) would look like the following:
+A valid YAML file for the node (most/all values populated with the defaults) would look like the following:
 
 ```yaml
 # Node daemon configuration
@@ -31,9 +31,9 @@ location:
 # Collector service configuration
 collector:
   # Collector host (the backend's host)
-  host: BACKEND-ip
+  host: BACKEND-IP
   # Port on which to wait for TCP packets
-  port: 2222
+  port: 2022
 
 # NATS server configuration
 nats:

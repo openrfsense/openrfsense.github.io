@@ -9,7 +9,7 @@ permalink: /docs/backend/configuration
 The static configuration for the backend is loaded from a valid YAML file and from environment variables.
 
 ## Configuration file
-A valid YAML file for the backend (most/all values populated) would look like the following:
+A valid YAML file for the backend (most/all values populated with the defaults) would look like the following:
 
 ```yaml
 # Backend server configuration
