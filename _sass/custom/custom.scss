@@ -2,9 +2,9 @@
 
 $list-inline-padding: .5rem;
 
-// Force <pre>s to use the current monospace font stack
-pre {
-  font-family: $mono-font-family;
+// FIXME: temporary fix for search padding (0.4.0rc4 broke it)
+.search-result {
+  padding: $sp-1 $sp-3;
 }
 
 // Make .btn use $link-color as outline

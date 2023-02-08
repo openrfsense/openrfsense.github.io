@@ -33,12 +33,12 @@ This project is powered by the following technologies:
 
 </div>
 
-## Getting started
+# Getting started
 Getting OpenRF up and running can be really easy, thanks to Docker. This guide will show examples and code snippets using fragments of Docker Compose configuration (`docker-compose.yml`) because of its relative ease of understanding and concise representation of containers and resources.
 
 The backend has to be deployed first, but it requires a running PostgreSQL instance to store the radio measurements received from the sensors.
 
-### PostgreSQL
+## PostgreSQL
 There are no particular requirements regarding the database structure, since the backend will automatically [migrate](https://gorm.io/docs/migration.html) the database table schemas it needs. The database can even be just anything compatible with the PostgreSQL wire protocol, like [CockroachDB](https://www.cockroachlabs.com/product/).
 
 Following the official PostgreSQL Docker documentation ([found here](https://github.com/docker-library/docs/blob/master/postgres/README.md#how-to-use-this-image)), an instance can be deployed like this:
@@ -54,7 +54,7 @@ postgresql:
 
 This will run PostgreSQL on port `5432` on the host, with username `postgres` and password `postgres`
 
-### Backend
+## Backend
 The backend is also trivially simple to deploy, thanks to it being developed with containerization in mind. Based on the PostgreSQL instance used above, a snippet for the backend could look like this:
 
 ```yaml
@@ -72,7 +72,7 @@ This example uses the least configuration possible for the backend, as the defau
 - listens for raw TCP packets coming from the sensors on port `2222` (forwarded to the host)
 - sends HTTP reponses on port `8080` (also forwarded to the host)
 
-### Complete example
+## Complete example
 Joining together the two snippets above, a `docker-compose.yml` would look something like the following:
 
 ```yaml
@@ -83,7 +83,7 @@ services:
       - 5432:5432
     environment:
       POSTGRES_PASSWORD: postgres
-  
+
   orfs_backend:
     image: openrfsense/backend:latest
     ports:
@@ -102,20 +102,20 @@ $ docker compose up
 
 You should then be able to open [`localhost:8080`](http://localhost:8080/) on your machine to see the sensor management UI.
 
-### Node
+## Node
 Deploying and maintaining a sensor/node is also really easy, but it can be done in two main ways.
 
-##### **Manual deployment on a generic machine**
+#### **Manual deployment on a generic machine**
 Since all that's needed for the node to run are the binary executable and the configuration file, you can just download [the latest release](https://github.com/openrfsense/node/releases) and run it:
 
 ```terminal
 $ ./orfs-node --config <your config file>
 ```
 
-##### **Disk image on a supported board**
+#### **Disk image on a supported board**
 Since this method warrants its own page, see [node/deployment](/docs/node/deployment).
 
-### What's next?
+## What's next?
 If you wish to explore the rest of documentation (highly recommended) or get a better understanding of how the whole system works, visit the following pages:
 
 - Backend

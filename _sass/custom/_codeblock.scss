@@ -1,16 +1,30 @@
 @import "mixins";
 
+$code-font-size: 14px;
+
+// Force <pre>s to use the current monospace font stack
+pre {
+  font-family: $mono-font-family;
+}
+
 // Code blocks with .nowrap will never be broken into a newline
 code.nowrap {
   white-space: nowrap;
 }
 
-.highlight {
-  pre {
-    margin-bottom: 0;
-    line-height: 1.4rem;
-    // Fixed iOS safari overflow-x
-    word-wrap: normal;
+div.highlighter-rouge div.highlight {
+  padding: 0;
+
+  .table-wrapper {
+    padding: $sp-4 0;
+
+    pre {
+      margin-bottom: 0;
+      font-size: $code-font-size !important;
+      line-height: $content-line-height;
+      // Fixed iOS safari overflow-x
+      word-wrap: normal;
+    }
   }
 
   table {
@@ -25,6 +39,7 @@ code.nowrap {
   // Unselectable line numbers etc
   .gl {
     @include unselectable;
+    padding: 0 $sp-2 0 $sp-3;
   }
 
   .lineno {
@@ -36,12 +51,11 @@ code.nowrap {
 }
 
 .highlighter-rouge:not([no-header]) {
-  padding-top: .2rem !important;
+  padding-top: $sp-1 !important;
 }
 
 // Hide line numbers for default, console, and terminal code snippets
 div {
-
   &[class^="highlighter-rouge"],
   &.nolineno,
   &.language-plaintext.highlighter-rouge,
@@ -55,7 +69,7 @@ div {
     // Make dollar sign unselectable
     .gp:first-of-type {
       @include unselectable;
-      margin-right: .2rem;
+      padding: 0 $sp-1 0 $sp-3;
 
       &~.w {
         @include unselectable;
@@ -64,7 +78,7 @@ div {
 
     // Adjust laft padding since there's no gutter anymore
     td.rouge-code {
-      padding-left: .8rem;
+      padding-left: $sp-3;
     }
   }
 }
@@ -82,7 +96,7 @@ div {
 
   // Divider
   &~hr {
-    margin: .2rem 0 .6rem 0;
+    margin: $sp-1 0 $sp-1 0;
   }
 
   // Label
