@@ -12,51 +12,12 @@ code.nowrap {
   white-space: nowrap;
 }
 
-div.highlighter-rouge div.highlight {
-  padding: 0;
-
-  .table-wrapper {
-    padding: $sp-4 0;
-
-    pre {
-      margin-bottom: 0;
-      font-size: $code-font-size !important;
-      line-height: $content-line-height;
-      // Fixed iOS safari overflow-x
-      word-wrap: normal;
-    }
+div.highlighter-rouge {
+  &:not([no-header]) {
+    padding-top: $sp-1 !important;
   }
 
-  table {
-    td pre {
-      // Fixed iOS safari overflow-x
-      overflow: visible;
-      // Fixed iOS safari linenos code break
-      word-break: normal;
-    }
-  }
-
-  // Unselectable line numbers etc
-  .gl {
-    @include unselectable;
-    padding: 0 $sp-2 0 $sp-3;
-  }
-
-  .lineno {
-    opacity: .35;
-    padding-right: .6rem;
-    min-width: 2.2rem;
-    text-align: right;
-  }
-}
-
-.highlighter-rouge:not([no-header]) {
-  padding-top: $sp-1 !important;
-}
-
-// Hide line numbers for default, console, and terminal code snippets
-div {
-  &[class^="highlighter-rouge"],
+  // Hide line numbers for default, console, and terminal code snippets
   &.nolineno,
   &.language-plaintext.highlighter-rouge,
   &.language-console.highlighter-rouge,
@@ -69,16 +30,65 @@ div {
     // Make dollar sign unselectable
     .gp:first-of-type {
       @include unselectable;
-      padding: 0 $sp-1 0 $sp-3;
+      padding: 0 $sp-1 0 $sp-2;
+
+      @include mq(md) {
+        padding-left: $sp-3;
+      }
 
       &~.w {
         @include unselectable;
       }
     }
 
-    // Adjust laft padding since there's no gutter anymore
+    // Adjust left padding since there's no gutter anymore
     td.rouge-code {
       padding-left: $sp-3;
+    }
+  }
+
+  div.highlight {
+    padding: 0;
+
+    .table-wrapper {
+      padding: $sp-4 0;
+
+      pre {
+        margin-bottom: 0;
+        // Force custom font size
+        font-size: $code-font-size !important;
+        // Use standard content line height
+        line-height: $content-line-height;
+        // Fixed iOS safari overflow-x
+        word-wrap: normal;
+      }
+    }
+
+    table {
+      td pre {
+        // Fixed iOS safari overflow-x
+        overflow: visible;
+        // Fixed iOS safari linenos code break
+        word-break: normal;
+      }
+    }
+
+    // Unselectable line numbers etc
+    .gl {
+      @include unselectable;
+      padding: 0 $sp-2 0 $sp-1;
+
+      @include mq(md) {
+        padding-left: $sp-3;
+      }
+    }
+
+    // Styles for line number cells
+    .lineno {
+      opacity: .35;
+      padding-right: .6rem;
+      min-width: 2.2rem;
+      text-align: right;
     }
   }
 }
@@ -100,19 +110,20 @@ div {
   }
 
   // Label
-  span {
-    @at-root [file] #{&}>i {
-      position: relative;
-      top: 1px;
-      /* center the file icon */
-    }
+  span::after {
+    content: attr(data-label-text);
+    font-size: 0.85rem;
+    font-weight: 600;
+    opacity: .35;
+  }
+}
 
-    // Label text
-    &::after {
-      content: attr(data-label-text);
-      font-size: 0.85rem;
-      font-weight: 600;
-      opacity: .35;
-    }
+@media print {
+  .code-header {
+    display: none;
+  }
+
+  div.highlighter-rouge {
+    border: 1px solid $grey-lt-300;
   }
 }

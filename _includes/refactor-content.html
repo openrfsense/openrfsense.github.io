@@ -1,6 +1,8 @@
 {% assign _content = include.html %}
 
-<!-- Remove useless <pre> from code blocks -->
+{% comment %}
+  Remove useless <pre> from code blocks
+{% endcomment %}
 
 {% if _content contains '<pre class="highlight">' %}
   {% assign _content = _content
@@ -9,7 +11,9 @@
   %}
 {% endif %}
 
-<!-- Add header for code snippets -->
+{% comment %}
+  Add header for code snippets
+{% endcomment %}
 
 {% if _content contains '<div class="highlight"><code>' %}
   {% assign _code_snippets = _content | split: '<div class="highlight"><code>' %}

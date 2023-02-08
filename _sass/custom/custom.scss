@@ -1,4 +1,5 @@
 @import "codeblock";
+@import "mixins";
 
 $list-inline-padding: .5rem;
 
@@ -9,6 +10,8 @@ $list-inline-padding: .5rem;
 
 // Make .btn use $link-color as outline
 .btn {
+  @include unselectable;
+
   &:focus {
     box-shadow: 0 0 0 3px rgba($link-color, 0.25);
   }
@@ -43,6 +46,13 @@ $list-inline-padding: .5rem;
         color: $link-color;
       }
     }
+  }
+}
+
+@media print {
+  .main {
+    margin: 0.5cm auto;
+    padding-top: 3rem;
   }
 }
 
